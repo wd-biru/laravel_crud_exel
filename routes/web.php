@@ -25,3 +25,8 @@ Route::post('/updatedata', 'UserController@updatedata');
 
 Route::get('/exports', 'UserController@exportData');
 
+Route::get('/student', 'StudentController@index');
+Route::post('/studentadd', 'StudentController@store');
+
+
+
