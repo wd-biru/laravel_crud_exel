@@ -13,21 +13,19 @@
 <!-- Button trigger modal -->
 
 <!-- Modal -->
-<div class="modal fade" id="studentsAddModel33" tabindex="-1" role="dialog" aria-labelledby="studentsAddModel" aria-hidden="true">
+<div class="modal fade" id="studentsAddModel" tabindex="-1" role="dialog" aria-labelledby="studentsAddModel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+         <h2>ADD form Using Laravel & AJAX</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
 
-  <h2>Vertical (basic) form AJAX</h2>
   <form id="addform" >
-
-          <div class="modal-body">
-@csrf
+ @csrf
+  <div class="modal-body">
     <div class="form-group">
       <label for="email">First Name:</label>
       <input type="text" class="form-control" id="fname" placeholder="Enter First Name" name="fname">
@@ -62,7 +60,7 @@
 </div>
 </div>
 
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentsAddModel33">
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#studentsAddModel">
   Launch demo modal
 </button>
 
@@ -77,14 +75,17 @@
 
     $('#addform').on('submit',function(e){
       e.preventDefault();
-        //alert('btn');
+        alert('btn');
       $.ajax({
         type: "POST",
         url: "{{URL('/studentadd')}}",
         data: $('#addform').serialize(),
-    
+         //alert('InAjax');
         success: function (response) {
-         $('#studentsAddModel33').model('hide');
+          //alert('Response True');
+          // console.log('response')
+
+         $('#studentsAddModel').hide();
           alert("Data Saved");
         },
         error: function(error){
@@ -96,7 +97,5 @@
     });
   });
 </script>
-
-
 </body>
 </html>

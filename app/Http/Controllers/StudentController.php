@@ -25,5 +25,7 @@ class StudentController extends Controller
 
     	$students->save();
 
+        //return redirect()->back();
+
     	    }
 }
